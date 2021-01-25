@@ -24,9 +24,10 @@
         <input type="number" name="children" placeholder="Children" required="required" /><br>
         <input type="text" name="smoker" placeholder="Smoker" required="required" /><br>
         <input type="text" name="region" placeholder="Region" required="required" /><br>
+	    <input type="text" value={{pred}} id="result" hidden=true/>
 
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-	    <input type="button" value="result" onclick="result()"/>
+	    <input type="button" value="Result" onclick="result()"/>
     </form>
 	     <script>
          function updateTextInput(val) {
@@ -34,8 +35,9 @@
 		 
 	 }
 		     function result(){
-			     var a = {{pred}};
-		     window.alert(a);
+			     a=document.getElementById("result").value;
+			     alert(a);
+		     }
 		     
     </script>
 
