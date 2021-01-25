@@ -25,7 +25,8 @@
         <input type="text" name="smoker" placeholder="Smoker" required="required" /><br>
         <input type="text" name="region" placeholder="Region" required="required" /><br>
 
-        <button type="submit" class="btn btn-primary btn-block btn-large" onclick="result()">Predict</button>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+	    <input type="button" value="result" onclick="result()"/>
     </form>
 	     <script>
          function updateTextInput(val) {
@@ -33,9 +34,8 @@
 		 
 	 }
 		     function result(){
-			     var c=document.getElementById("result").value;
-		     window.alert(c);
-		     }
+			     var a = {{pred}};
+		     window.alert(a);
 		     
     </script>
 
@@ -43,8 +43,7 @@
    <br>
   
    
- </div id="result">
- {{pred}}
+ </div>
 
 </body>
 </html>
