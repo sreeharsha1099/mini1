@@ -1,4 +1,4 @@
-from flask import Flask,request, url_for, redirect, render_template, jsonify
+from flask import Flask,request, url_for, redirect, render_template, jsonify,flash
 from pycaret.regression import *
 import pandas as pd
 import pickle
@@ -11,6 +11,7 @@ cols = ['age', 'sex', 'bmi', 'children', 'smoker', 'region']
 
 @app.route('/')
 def home():
+    flash("Flash Test")
     return render_template("home.html")
 
 @app.route('/predict',methods=['POST'])
