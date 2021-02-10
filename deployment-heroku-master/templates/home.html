@@ -17,35 +17,22 @@
 
      <!-- Form to enter new data for predictions  -->
     <form action="{{ url_for('predict')}}"method="POST">
-      <input type="number" name="age" placeholder="Age" max="100" required="required" /><br>
+      <input type="text" name="age" placeholder="Age" required="required" /><br>
     	<input type="text" name="sex" placeholder="Sex" required="required" /><br>
-	 <input id="range" type="range" value="1" min="1" max="45" step="0.01" oninput="this.nextElementSibling.value = this.value" onchange="updateTextInput(this.value);">
-        <input type="text" name="bmi" placeholder="BMI" required="required" id="bmi" value="" /><br>
-        <input type="number" name="children" placeholder="Children" required="required" /><br>
+        <input type="text" name="bmi" placeholder="BMI" required="required" /><br>
+        <input type="text" name="children" placeholder="Children" required="required" /><br>
         <input type="text" name="smoker" placeholder="Smoker" required="required" /><br>
         <input type="text" name="region" placeholder="Region" required="required" /><br>
-	    <input type="text" value={{pred}} id="result" hidden=true/>
 
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-	    <button type="button" value="Result" onclick="result()"></button>
     </form>
-	     <script>
-         function updateTextInput(val) {
-          document.getElementById('bmi').value=val;
-		 
-	 }
-		     function result(){
-			     a=document.getElementById("result").value;
-			     alert(a);
-		     }
-		     
-    </script>
 
    <br>
    <br>
   
    
  </div>
+ {{pred}}
 
 </body>
 </html>
