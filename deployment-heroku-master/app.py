@@ -1,4 +1,4 @@
-from flask import Flask,request, url_for, redirect, render_template, jsonify,flash
+from flask import Flask,request, url_for, redirect, render_template, jsonify
 from pycaret.regression import *
 import pandas as pd
 import pickle
@@ -11,7 +11,6 @@ cols = ['age', 'sex', 'bmi', 'children', 'smoker', 'region']
 
 @app.route('/')
 def home():
-    flash("Flash Test")
     return render_template("home.html")
 
 @app.route('/predict',methods=['POST'])
@@ -21,7 +20,7 @@ def predict():
     data_unseen = pd.DataFrame([final], columns = cols)
     prediction = predict_model(model, data=data_unseen, round = 0)
     prediction = int(prediction.Label[0])
-    return render_template('home.html',pred='Hello User, Your Expected Bill will be {} :)'.format(prediction))
+    return render_template('home.html',pred='Expected Bill will be {}'.format(prediction))
 
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
